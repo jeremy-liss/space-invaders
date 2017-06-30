@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="css/core.css">
+		  <link rel="stylesheet" type="text/css" href="css/typeography.css">
+      <title>Starfield</title>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script src="js/starfield.js"></script>
+        <script>
+          var container = document.getElementById('container');
+          var starfield = new Starfield();
+          starfield.initialise(container);
+          starfield.start();
+        </script>
+    </body>
+</html>
