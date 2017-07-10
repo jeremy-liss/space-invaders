@@ -13,7 +13,7 @@ const App = (props)=> {
 
   return (
     <div>
-      <div id="invaders">
+      <div id="header">
         <img src='../images/power.jpg' />
       </div>
       {props.cols.map((row)=>{
