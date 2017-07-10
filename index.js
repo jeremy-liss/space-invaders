@@ -7,14 +7,13 @@ import detectCharacterMovement from './lib/detectCharacterMovement'
 import moveInvaders from './lib/moveInvaders'
 
 setInterval(()=>{
-    if(state.right){
-      moveInvaders('right', state)
-    } else moveInvaders('left', state)
-    render(state)
-  }, 500)
+  moveInvaders(state)
+}, 500)
 
-setInterval(function(){
-  detectCharacterMovement();
+setInterval(()=>{
+  detectCharacterMovement()
+
+  render()
 }, 1000/24)
 
 const target = document.getElementById('root')
@@ -24,4 +23,4 @@ const render = ()=> {
   ReactDOM.render(view, target)
 }
 
-render(state)
+render()

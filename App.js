@@ -18,19 +18,19 @@ const App = (props)=> {
       </div>
       {props.cols.map((row)=>{
         return (
-          <div id="invaders">
+          <div id="invaders" style={props.invadersPosition}>
             {props.row1.map((invader)=>{
               let src = getImageSrc(props)
               return (
                 <div className="invader">
-                  {invader && <img src={src} />}
+                  {invader && <img src={props.invaderImage} />}
                 </div>
               )
             })}
           </div>
         )
       })}
-        <div id="character" style={props.divStyle}>
+        <div id="character" style={props.characterPosition}>
           <img src="../images/character.jpg" />
       </div>
     </div>
