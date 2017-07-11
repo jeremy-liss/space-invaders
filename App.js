@@ -1,14 +1,5 @@
 import React from 'react'
 
-const getImageSrc = (props) => {
-   if (props.open){
-    return props.image2
-  }
-  else {
-    return props.image1
-  }
-}
-
 const App = (props)=> {
 
   return (
@@ -16,22 +7,24 @@ const App = (props)=> {
       <div id="header">
         <img src='../images/power.jpg' />
       </div>
-      {props.cols.map((row)=>{
+      {props.invaders.map((row, i)=>{
         return (
-          <div id="invaders" style={props.invadersPosition}>
-            {props.row1.map((invader)=>{
-              let src = getImageSrc(props)
+          <div id="invaders" style={props.invadersPosition} key={i}>
+            {row.map((invader, i)=>{
               return (
-                <div className="invader">
-                  {invader && <img src={props.invaderImage} />}
+                <div className="invader" id={invader.id} key={i}>
+                  {invader.alive && <img src={props.invaderImage} />}
                 </div>
               )
             })}
           </div>
         )
       })}
-        <div id="character" style={props.characterPosition}>
-          <img src="../images/character.jpg" />
+      <div>
+        <div id="shot" style={props.shot}></div>
+      </div>
+      <div id="character" style={props.characterPosition}>
+        <img src="../images/character.jpg" />
       </div>
     </div>
   )

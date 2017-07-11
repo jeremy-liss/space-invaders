@@ -5,6 +5,7 @@ import App from './App'
 import state from './state'
 import detectCharacterMovement from './lib/detectCharacterMovement'
 import moveInvaders from './lib/moveInvaders'
+import checkHit from './lib/checkHit'
 
 setInterval(()=>{
   moveInvaders(state)
@@ -12,7 +13,10 @@ setInterval(()=>{
 
 setInterval(()=>{
   detectCharacterMovement()
-
+  if(state.shoot === true){
+    state.shot.bottom += 50
+    checkHit()
+  }
   render()
 }, 1000/24)
 
