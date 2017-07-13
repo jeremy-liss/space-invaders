@@ -13,7 +13,7 @@ setInterval(()=>{
 
 setInterval(()=>{
   detectCharacterMovement()
-  if(state.shoot === true){
+  if(state.shoot){
     state.shot.bottom += 50
     checkHit()
   }

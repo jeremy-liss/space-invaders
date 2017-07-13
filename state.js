@@ -3,43 +3,45 @@ export default {
   right: true,
   invaders: [
     [
-      {id:'0', alive:true},
-      {id:'1', alive:true},
-      {id:'2', alive:true},
-      {id:'3', alive:true},
-      {id:'4', alive:true},
+      {id:'0', alive:true, points: 50},
+      {id:'1', alive:true, points: 50},
+      {id:'2', alive:true, points: 50},
+      {id:'3', alive:true, points: 50},
+      {id:'4', alive:true, points: 50},
     ],
     [
-      {id:'5', alive:true},
-      {id:'6', alive:true},
-      {id:'6', alive:true},
-      {id:'8', alive:true},
-      {id:'9', alive:true},
+      {id:'5', alive:true, points: 40},
+      {id:'6', alive:true, points: 40},
+      {id:'6', alive:true, points: 40},
+      {id:'8', alive:true, points: 40},
+      {id:'9', alive:true, points: 40},
     ],
     [
-      {id:'10', alive:true},
-      {id:'11', alive:true},
-      {id:'12', alive:true},
-      {id:'13', alive:true},
-      {id:'14', alive:true},
+      {id:'10', alive:true, points: 30},
+      {id:'11', alive:true, points: 30},
+      {id:'12', alive:true, points: 30},
+      {id:'13', alive:true, points: 30},
+      {id:'14', alive:true, points: 30},
     ],
     [
-      {id:'15', alive:true},
-      {id:'16', alive:true},
-      {id:'17', alive:true},
-      {id:'18', alive:true},
-      {id:'19', alive:true},
+      {id:'15', alive:true, points: 20},
+      {id:'16', alive:true, points: 20},
+      {id:'17', alive:true, points: 20},
+      {id:'18', alive:true, points: 20},
+      {id:'19', alive:true, points: 20},
     ],
     [
-      {id:'20', alive:true},
-      {id:'21', alive:true},
-      {id:'22', alive:true},
-      {id:'23', alive:true},
-      {id:'24', alive:true},
+      {id:'20', alive:true, points: 10},
+      {id:'21', alive:true, points: 10},
+      {id:'22', alive:true, points: 10},
+      {id:'23', alive:true, points: 10},
+      {id:'24', alive:true, points: 10},
     ]
   ],
   characterPosition: {
-    marginLeft: 600
+    left: 500,
+    bottom: 50,
+    position: 'absolute'
   },
   invadersPosition: {
     marginLeft: -200
@@ -49,8 +51,9 @@ export default {
     height: 0,
     background: 'black',
     marginLeft: 0,
-    bottom: 0,
+    bottom: 50,
     position: 'absolute'
   },
-  shoot: false
+  shoot: false,
+  score: 0
 }
