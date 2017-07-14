@@ -8,10 +8,9 @@ const App = (props)=> {
         <img src='../images/power.jpg' id="banner" />
       </div>
       <div id="header">
-        <h4>Score: {props.score}</h4>
+        <h4>Score: {props.score} | Lives: {props.lives}</h4>
       </div>
-      {props.allDead ? <h1>Damned Good Shooting!</h1> :
-        props.invaders.map((row, i)=>{
+      {props.invaders.map((row, i)=>{
           return (
             <div id="invaders" style={props.invadersPosition} key={i}>
               {row.map((invader, i)=>{
@@ -25,11 +24,10 @@ const App = (props)=> {
           )
         })
       }
-      <div>
-        <div id="shot" style={props.shot}></div>
-      </div>
-      <div id="character" style={props.characterPosition}>
-        <img src="../images/character.jpg" />
+      <div id="bomb" style={props.bomb}></div>
+      <div id="shot" style={props.shot}></div>
+      <div id="player" style={props.playerPosition}>
+        <img src="../images/player.jpg" />
       </div>
     </div>
   )

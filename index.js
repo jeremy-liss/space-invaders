@@ -3,20 +3,23 @@ import ReactDOM from 'react-dom'
 
 import App from './App'
 import state from './state'
-import detectCharacterMovement from './lib/detectCharacterMovement'
+import playerControl from './lib/playerControl'
 import moveInvaders from './lib/moveInvaders'
 import checkHit from './lib/checkHit'
+import dropBomb from './lib/dropBomb'
 
 setInterval(()=>{
   moveInvaders(state)
+  let id = Math.floor(Math.random() * 25).toString()
+  dropBomb(id)
 }, 500)
 
 setInterval(()=>{
-  detectCharacterMovement()
+  playerControl()
   if(state.shoot){
     state.shot.bottom += 50
-    checkHit()
   }
+  checkHit()
   render()
 }, 1000/24)
 

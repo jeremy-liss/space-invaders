@@ -38,7 +38,7 @@ export default {
       {id:'24', alive:true, points: 10},
     ]
   ],
-  characterPosition: {
+  playerPosition: {
     left: 500,
     bottom: 50,
     position: 'absolute'
@@ -54,6 +54,16 @@ export default {
     bottom: 50,
     position: 'absolute'
   },
+  bomb: {
+    width: 0,
+    height: 0,
+    background: 'black',
+    left: 0,
+    bottom: 300,
+    position: 'absolute'
+  },
   shoot: false,
-  score: 0
+  dropBomb: false,
+  score: 0,
+  lives: 3
 }
