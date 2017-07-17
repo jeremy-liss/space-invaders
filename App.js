@@ -8,7 +8,7 @@ const App = (props)=> {
         <img src='../images/power.jpg' id="banner" />
       </div>
       <div id="header">
-        <h4>Score: {props.score} | Lives: {props.lives}</h4>
+        <h3>Score: {props.score} | Lives: {props.lives}</h3>
       </div>
       {props.invaders.map((row, i)=>{
           return (

@@ -1,3 +1,8 @@
+* {
+  /*font-family: 'Caveat', cursive;*/
+  font-family: 'Quantico', sans-serif;
+}
+
 #invaders {
   display: flex;
   align-items: center;
