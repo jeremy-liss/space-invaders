@@ -16,7 +16,7 @@ const App = (props)=> {
               {row.map((invader, i)=>{
                 return (
                   <div className="invader" id={invader.id} key={i}>
-                    {invader.alive && <img src={props.invaderImage} />}
+                    {invader.alive && <img src={invader.activeImage} />}
                   </div>
                 )
               })}

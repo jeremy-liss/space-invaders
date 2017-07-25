@@ -16,7 +16,10 @@ const populateInvaders =()=>{
       invader.id = invaderId
       invader.alive = true
       invader.points =
-        (invaderId < 11 ) ? 50 : (invaderId < 22) ? 40 : (invaderId < 33) ? 30 : (invaderId < 44) ? 20 : 10
+        (invaderId < 11) ? 50 : (invaderId < 22) ? 40 : (invaderId < 33) ? 30 : (invaderId < 44) ? 20 : 10
+      invader.image1 = (invaderId > 10 && invaderId < 22 || invaderId > 32 && invaderId < 44) ? '../images/invaderA1.jpg' : '../images/invader1.jpg'
+      invader.image2 = (invaderId > 10 && invaderId < 22 || invaderId > 32 && invaderId < 44) ? '../images/invaderA2.jpg' : '../images/invader2.jpg'
+      invader.activeImage = invader.image1
       invaderId++
     })
   })
