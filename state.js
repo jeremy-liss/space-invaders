@@ -8,10 +8,14 @@ export default {
     [ {},{},{},{},{},{},{},{},{},{},{} ],
     [ {},{},{},{},{},{},{},{},{},{},{} ]
   ],
-  playerPosition: {
-    left: 500,
-    bottom: 50,
-    position: 'absolute'
+  player: {
+    style: {
+      left: 500,
+      bottom: 50,
+      position: 'absolute'
+    },
+    image1:"../images/player.jpg",
+    image2:"../images/hit.jpg"
   },
   invadersPosition: {
     marginLeft: -200
@@ -35,5 +39,6 @@ export default {
   shoot: false,
   dropBomb: false,
   score: 0,
-  lives: 3
+  lives: 3,
+  playerHit: false
 }

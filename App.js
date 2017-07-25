@@ -26,8 +26,8 @@ const App = (props)=> {
       }
       <div id="bomb" style={props.bomb}></div>
       <div id="shot" style={props.shot}></div>
-      <div id="player" style={props.playerPosition}>
-        <img src="../images/player.jpg" />
+      <div id="player" style={props.player.style}>
+        {props.playerHit ? <img src={props.player.image2} /> : <img src={props.player.image1} />}
       </div>
     </div>
   )

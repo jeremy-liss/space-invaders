@@ -24,11 +24,24 @@ const populateInvaders =()=>{
 
 populateInvaders()
 
-setInterval(()=>{
-  moveInvaders(state)
-  let id = Math.floor(Math.random() * invaderId)
-  dropBomb(id)
-}, 500)
+let game = null
+
+const invaderMovement = () => {
+  clearInterval(game)
+   game = setInterval(() => {
+    moveInvaders(state)
+    let id = Math.floor(Math.random() * invaderId)
+    dropBomb(id)
+  }, 500)
+  if (state.playerHit){
+    setTimeout(()=>{
+      invaderMovement()
+      state.playerHit = false
+    }, 500)
+  }
+}
+
+invaderMovement()
 
 setInterval(()=>{
   playerControl()
@@ -36,6 +49,10 @@ setInterval(()=>{
     state.shot.bottom += 50
   }
   checkHit()
+  if (state.playerHit){
+    invaderMovement()
+  }
+  console.log(state.playerHit);
   render()
 }, 1000/24)
 
