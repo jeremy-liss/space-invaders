@@ -31,11 +31,13 @@ let game = null
 
 const invaderMovement = () => {
   clearInterval(game)
+
    game = setInterval(() => {
     moveInvaders(state)
     let id = Math.floor(Math.random() * invaderId)
     dropBomb(id)
   }, 500)
+  
   if (state.playerHit){
     setTimeout(()=>{
       invaderMovement()
@@ -55,7 +57,6 @@ setInterval(()=>{
   if (state.playerHit){
     invaderMovement()
   }
-  console.log(state.playerHit);
   render()
 }, 1000/24)
 
