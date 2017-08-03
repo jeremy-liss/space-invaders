@@ -1,31 +1,51 @@
 import React from 'react'
 
-const App = (props)=> {
+const App = (props) => {
 
   return (
-    <div>
+    <div id='main'>
       <div id="header">
-        <img src='../images/power.jpg' />
+        <img src='../images/power.jpg' id="banner" />
       </div>
-      {props.invaders.map((row, i)=>{
+      <div id="header">
+        <h3>Score: {props.score} | Lives: {props.lives}</h3>
+      </div>
+      {!props.gameOver ? <Invaders invaders={props.invaders} invadersPosition={props.invadersPosition}/> :
+        <div>
+          <div id="invaders">
+            <h1>GAME OVER</h1>
+          </div>
+          <div id="invaders">
+            <h2><a href='#' onClick={() => props.restart()}>New Game</a></h2>
+          </div>
+        </div>
+      }
+      <div id="bomb" style={props.bomb}></div>
+      <div id="shot" style={props.shot}></div>
+      <div id="player" style={props.player.style}>
+        {props.playerHit ? <img src={props.player.image2} /> : <img src={props.player.image1} />}
+      </div>
+    </div>
+  )
+}
+
+const Invaders = (props) => {
+  return (
+    <div>
+      {props.invaders.map((row, i) => {
         return (
           <div id="invaders" style={props.invadersPosition} key={i}>
-            {row.map((invader, i)=>{
+            {row.map((invader, i) => {
               return (
                 <div className="invader" id={invader.id} key={i}>
-                  {invader.alive && <img src={props.invaderImage} />}
+                  {invader.alive && <img src={invader.activeImage} />}
                 </div>
               )
             })}
           </div>
         )
-      })}
-      <div>
-        <div id="shot" style={props.shot}></div>
-      </div>
-      <div id="character" style={props.characterPosition}>
-        <img src="../images/character.jpg" />
-      </div>
+      })
+    }
     </div>
   )
 }
