@@ -40,5 +40,6 @@ export default {
   dropBomb: false,
   score: 0,
   lives: 3,
-  playerHit: false
+  playerHit: false,
+  gameOver: false
 }

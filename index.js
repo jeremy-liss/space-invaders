@@ -2,17 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import App from './App'
-import state from './state'
+import initialState from './state'
 import playerControl from './lib/playerControl'
 import moveInvaders from './lib/moveInvaders'
 import checkHit from './lib/checkHit'
 import dropBomb from './lib/dropBomb'
 
+let state = initialState
+
 let invaderId = 0
 
-const populateInvaders =()=>{
-  state.invaders.forEach((rows)=>{
-    rows.forEach((invader)=>{
+const populateInvaders = () => {
+  state.invaders.forEach((rows) => {
+    rows.forEach((invader) => {
       invader.id = invaderId
       invader.alive = true
       invader.points =
@@ -27,6 +29,12 @@ const populateInvaders =()=>{
 
 populateInvaders()
 
+const restart = () => {
+  window.location.reload()
+}
+
+state.restart = restart
+
 let game = null
 
 const invaderMovement = () => {
@@ -37,7 +45,7 @@ const invaderMovement = () => {
     let id = Math.floor(Math.random() * invaderId)
     dropBomb(id)
   }, 500)
-  
+
   if (state.playerHit){
     setTimeout(()=>{
       invaderMovement()
@@ -68,3 +76,5 @@ const render = ()=> {
 }
 
 render()
+
+export {state}
