@@ -17,11 +17,20 @@ const populateInvaders = () => {
     rows.forEach((invader) => {
       invader.id = invaderId
       invader.alive = true
-      invader.points =
-        (invaderId < 11) ? 50 : (invaderId < 22) ? 40 : (invaderId < 33) ? 30 : (invaderId < 44) ? 20 : 10
-      invader.image1 = (invaderId > 10 && invaderId < 22 || invaderId > 32 && invaderId < 44) ? '../images/invaderA1.jpg' : '../images/invader1.jpg'
-      invader.image2 = (invaderId > 10 && invaderId < 22 || invaderId > 32 && invaderId < 44) ? '../images/invaderA2.jpg' : '../images/invader2.jpg'
-      invader.activeImage = invader.image1
+      if (invaderId < 11){
+        invader.points = 40
+        invader.image1 = '../images/invaderA1.jpg'
+        invader.image2 = '../images/invaderA2.jpg'
+      }
+      else if (invaderId > 10 && invaderId < 33) {
+        invader.points = 20
+        invader.image1 = '../images/invader1.jpg'
+        invader.image2 = '../images/invader2.jpg'
+      } else {
+        invader.points = 10
+        invader.image1 = '../images/invaderB1.jpg'
+        invader.image2 = '../images/invaderB2.jpg'
+      }
       invaderId++
     })
   })
@@ -29,11 +38,9 @@ const populateInvaders = () => {
 
 populateInvaders()
 
-const restart = () => {
+state.restart = () => {
   window.location.reload()
 }
-
-state.restart = restart
 
 let game = null
 
@@ -46,19 +53,19 @@ const invaderMovement = () => {
     dropBomb(id)
   }, 500)
 
-  if (state.playerHit){
-    setTimeout(()=>{
+  if (state.playerHit) {
+    setTimeout( () => {
       invaderMovement()
       state.playerHit = false
-    }, 500)
+    }, 2000)
   }
 }
 
 invaderMovement()
 
-setInterval(()=>{
+setInterval( () => {
   playerControl()
-  if(state.shoot){
+  if (state.shoot){
     state.shot.bottom += 50
   }
   checkHit()
@@ -70,11 +77,11 @@ setInterval(()=>{
 
 const target = document.getElementById('root')
 
-const render = ()=> {
+const render = () => {
   const view = App(state)
   ReactDOM.render(view, target)
 }
 
 render()
 
-export {state}
+export { state }
