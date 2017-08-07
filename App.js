@@ -10,7 +10,16 @@ const App = (props) => {
       <div id="header">
         <h3>Score: {props.score} | Lives: {props.lives}</h3>
       </div>
-      {!props.gameOver ? <Invaders invaders={props.invaders} invadersPosition={props.invadersPosition}/> :
+      {!props.gameOver ?
+        <div>
+          <Invaders invaders={props.invaders} invadersPosition={props.invadersPosition}/>
+          <div id="bomb" style={props.bomb}></div>
+          <div id="shot" style={props.shot}></div>
+          <div id="player" style={props.player.style}>
+            {props.playerHit ? <img src={props.player.image2} /> : <img src={props.player.image1} />}
+          </div>
+        </div>
+        :
         <div>
           <div id="invaders">
             <h1>GAME OVER</h1>
@@ -20,11 +29,6 @@ const App = (props) => {
           </div>
         </div>
       }
-      <div id="bomb" style={props.bomb}></div>
-      <div id="shot" style={props.shot}></div>
-      <div id="player" style={props.player.style}>
-        {props.playerHit ? <img src={props.player.image2} /> : <img src={props.player.image1} />}
-      </div>
     </div>
   )
 }
