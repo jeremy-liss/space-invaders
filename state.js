@@ -41,5 +41,6 @@ export default {
   score: 0,
   lives: 3,
   playerHit: false,
-  gameOver: false
+  gameOver: false,
+  deadCount: 0
 }

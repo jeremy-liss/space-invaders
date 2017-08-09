@@ -7,36 +7,12 @@ import playerControl from './lib/playerControl'
 import moveInvaders from './lib/moveInvaders'
 import checkHit from './lib/checkHit'
 import dropBomb from './lib/dropBomb'
+import populateInvaders from './lib/populateInvaders'
+import checkAllDead from './lib/checkAllDead'
 
 let state = initialState
 
-let invaderId = 0
-
-const populateInvaders = () => {
-  state.invaders.forEach((rows) => {
-    rows.forEach((invader) => {
-      invader.id = invaderId
-      invader.alive = true
-      if (invaderId < 11){
-        invader.points = 40
-        invader.image1 = '../images/invaderA1.jpg'
-        invader.image2 = '../images/invaderA2.jpg'
-      }
-      else if (invaderId > 10 && invaderId < 33) {
-        invader.points = 20
-        invader.image1 = '../images/invader1.jpg'
-        invader.image2 = '../images/invader2.jpg'
-      } else {
-        invader.points = 10
-        invader.image1 = '../images/invaderB1.jpg'
-        invader.image2 = '../images/invaderB2.jpg'
-      }
-      invaderId++
-    })
-  })
-}
-
-populateInvaders()
+populateInvaders(state)
 
 state.restart = () => {
   window.location.reload()
@@ -49,7 +25,7 @@ const invaderMovement = () => {
 
    game = setInterval(() => {
     moveInvaders(state)
-    let id = Math.floor(Math.random() * invaderId)
+    let id = Math.floor(Math.random() * 54)
     dropBomb(id)
   }, 500)
 
@@ -57,7 +33,7 @@ const invaderMovement = () => {
     setTimeout( () => {
       invaderMovement()
       state.playerHit = false
-    }, 2000)
+    }, 1000)
   }
 }
 
@@ -72,6 +48,7 @@ setInterval( () => {
   if (state.playerHit){
     invaderMovement()
   }
+  checkAllDead(state)  
   render()
 }, 1000/24)
 
