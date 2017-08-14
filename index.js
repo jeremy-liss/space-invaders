@@ -48,7 +48,7 @@ setInterval( () => {
   if (state.playerHit){
     invaderMovement()
   }
-  checkAllDead(state)  
+  checkAllDead(state)
   render()
 }, 1000/24)
 
