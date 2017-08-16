@@ -3,50 +3,24 @@ import ReactDOM from 'react-dom'
 
 import App from './App'
 import initialState from './state'
-import playerControl from './lib/playerControl'
-import moveInvaders from './lib/moveInvaders'
 import checkHit from './lib/checkHit'
-import dropBomb from './lib/dropBomb'
 import populateInvaders from './lib/populateInvaders'
 import checkAllDead from './lib/checkAllDead'
+import game from './lib/game'
 
 let state = initialState
-
-populateInvaders(state)
 
 state.restart = () => {
   window.location.reload()
 }
 
-let game = null
-
-const invaderMovement = () => {
-  clearInterval(game)
-
-   game = setInterval(() => {
-    moveInvaders(state)
-    let id = Math.floor(Math.random() * 54)
-    dropBomb(id)
-  }, 500)
-
-  if (state.playerHit) {
-    setTimeout( () => {
-      invaderMovement()
-      state.playerHit = false
-    }, 1000)
-  }
-}
-
-invaderMovement()
+populateInvaders(state)
+game(state)
 
 setInterval( () => {
-  playerControl()
-  if (state.shoot){
-    state.shot.bottom += 50
-  }
   checkHit()
-  if (state.playerHit){
-    invaderMovement()
+  if (state.playerHit) {
+    game(state)
   }
   checkAllDead(state)
   render()
