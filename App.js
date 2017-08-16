@@ -12,7 +12,7 @@ const App = (props) => {
       </div>
       {!props.gameOver ?
         <div>
-          <Invaders invaders={props.invaders} invadersPosition={props.invadersPosition}/>
+          <Invaders invaders={props.invaders} invadersPosition={props.invadersPosition} />
           <div id="bomb" style={props.bomb}></div>
           <div id="shot" style={props.shot}></div>
           <div id="player" style={props.player.style}>
