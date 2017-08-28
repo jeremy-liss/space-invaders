@@ -26,6 +26,26 @@ setInterval( () => {
   render()
 }, 1000/24)
 
+let bonusTimer = null
+
+const moveBonus = () => {
+
+  clearInterval(bonusTimer)
+
+  bonusTimer = setInterval(() => {
+    state.bonus.style.left -= 50
+    if (state.bonus.style.left === 100){
+      state.bonus.visible = false
+      state.bonus.style.left = 1000
+    }
+  }, 1000/10)
+}
+
+setInterval( () => {
+  state.bonus.visible = true
+  moveBonus()
+}, 5000)
+
 const target = document.getElementById('root')
 
 const render = () => {

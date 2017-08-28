@@ -1,33 +1,4 @@
 export default {
-  invaderImage: '../images/invader1.jpg',
-  right: true,
-  invaders: [
-    [ {},{},{},{},{},{},{},{},{},{},{} ],
-    [ {},{},{},{},{},{},{},{},{},{},{} ],
-    [ {},{},{},{},{},{},{},{},{},{},{} ],
-    [ {},{},{},{},{},{},{},{},{},{},{} ],
-    [ {},{},{},{},{},{},{},{},{},{},{} ]
-  ],
-  player: {
-    style: {
-      left: 500,
-      bottom: 50,
-      position: 'absolute'
-    },
-    image1:"../images/player.jpg",
-    image2:"../images/hit.jpg"
-  },
-  invadersPosition: {
-    marginLeft: -200
-  },
-  shot: {
-    width: 0,
-    height: 0,
-    background: 'black',
-    marginLeft: 0,
-    bottom: 50,
-    position: 'absolute'
-  },
   bomb: {
     width: 0,
     height: 0,
@@ -36,11 +7,47 @@ export default {
     bottom: 300,
     position: 'absolute'
   },
-  shoot: false,
+  bonus: {
+    style: {
+      left: 1000,
+      position: 'relative'
+    },
+    visible: false
+  },
+  deadCount: 0,
   dropBomb: false,
-  score: 0,
-  lives: 3,
-  playerHit: false,
   gameOver: false,
-  deadCount: 0
+  invaderImage: '../images/invader1.jpg',
+  invaders: [
+    [ {},{},{},{},{},{},{},{},{},{},{} ],
+    [ {},{},{},{},{},{},{},{},{},{},{} ],
+    [ {},{},{},{},{},{},{},{},{},{},{} ],
+    [ {},{},{},{},{},{},{},{},{},{},{} ],
+    [ {},{},{},{},{},{},{},{},{},{},{} ]
+  ],
+  invadersPosition: {
+    marginLeft: -200
+  },
+  lives: 3,
+  player: {
+    image1:"../images/player.jpg",
+    image2:"../images/hit.jpg",
+    style: {
+      bottom: 50,
+      left: 500,
+      position: 'relative'
+    }
+  },
+  playerHit: false,
+  right: true,
+  score: 0,
+  shoot: false,
+  shot: {
+    background: 'black',
+    bottom: 50,
+    height: 0,
+    marginLeft: 0,
+    position: 'absolute',
+    width: 0
+  }
 }
