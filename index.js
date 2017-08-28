@@ -22,7 +22,7 @@ setInterval( () => {
   if (state.playerHit) {
     game(state)
   }
-  checkAllDead(state)
+  checkAllDead.checkAllDead(state)
   render()
 }, 1000/24)
 
