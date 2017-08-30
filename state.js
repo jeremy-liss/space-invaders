@@ -8,10 +8,12 @@ export default {
     position: 'absolute'
   },
   bonus: {
+    points: 0,
     style: {
-      left: 1000,
+      left: 100,
       position: 'relative'
     },
+    showPoints: false,
     visible: false
   },
   deadCount: 0,
