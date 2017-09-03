@@ -11,10 +11,6 @@ import bonusLoop from './lib/moveBonus'
 
 let state = initialState
 
-state.restart = () => {
-  window.location.reload()
-}
-
 populateInvaders(state)
 game(state)
 bonusLoop()

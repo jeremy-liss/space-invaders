@@ -41,6 +41,9 @@ export default {
     }
   },
   playerHit: false,
+  restart : function() {
+    window.location.reload()
+  },
   right: true,
   score: 0,
   shoot: false,
