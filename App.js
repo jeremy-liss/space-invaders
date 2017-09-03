@@ -20,7 +20,7 @@ const App = (props) => {
             {props.bonus.showPoints && <div>{props.bonus.points}</div>}
           </div>
           <Invaders invaders={props.invaders} invadersPosition={props.invadersPosition} />
-          <div id="bomb" style={props.bomb}></div>
+          <div id="bomb" style={props.bomb.style}></div>
           <div id="shot" style={props.shot}></div>
           <div id="player" style={props.player.style}>
             {props.playerHit ? <img src={props.player.image2} /> : <img src={props.player.image1} />}

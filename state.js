@@ -1,11 +1,14 @@
 export default {
   bomb: {
-    width: 0,
-    height: 0,
-    background: 'black',
-    left: 0,
-    bottom: 300,
-    position: 'absolute'
+    drop: false,
+    style: {
+      width: 0,
+      height: 0,
+      background: 'black',
+      left: 0,
+      bottom: 300,
+      position: 'absolute'
+    }
   },
   bonus: {
     points: 0,
@@ -41,7 +44,7 @@ export default {
     }
   },
   playerHit: false,
-  restart : function() {
+  restart : () => {
     window.location.reload()
   },
   right: true,
