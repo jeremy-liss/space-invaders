@@ -13,6 +13,7 @@ let state = initialState
 
 populateInvaders(state)
 game(state)
+console.log(state.invaders)
 bonusLoop()
 
 setInterval( () => {
